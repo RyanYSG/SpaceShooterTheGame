@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpaceShip/SpaceShip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/MeteorSpawner.gd" type="Script" id=2]
+[ext_resource path="res://Level/Camera2D.gd" type="Script" id=3]
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 192, 384 )
+current = true
+script = ExtResource( 3 )
+
+[node name="SpaceShip" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 680 )
+
+[node name="MeteorSpawner" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="SpawnCd" type="Timer" parent="MeteorSpawner"]
+autostart = true
+
+[connection signal="timeout" from="MeteorSpawner/SpawnCd" to="MeteorSpawner" method="_on_SpawnCd_timeout"]

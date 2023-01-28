@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Meteors/Meteor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Meteors/BigMeteor.png" type="Texture" id=2]
+[ext_resource path="res://Meteors/BigMeteor.gd" type="Script" id=3]
+
+[node name="BigMeteor" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+_move_speed = 50.0
+
+[node name="Sprite" parent="Pivot" index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -26, 4, -14, -11, 13, -18, 25, -6, 22, 11, 13, 18, 0, 16, -12, 18 )
